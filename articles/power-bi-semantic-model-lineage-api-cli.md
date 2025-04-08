@@ -18,7 +18,7 @@ To make this process easier, I've created a Python script that extracts the sema
 
 ## The Solution
 
-The script I created, [`inventory.py`](https://github.com/viktorradu/fabric-datasource-inventory/blob/main/inventory.py), leverages the Power BI REST API to extract metadata about your datasets, models, and their associated data sources. It then organizes this information into a CSV file for easy review.
+The script I created, [`inventory-cli.py`](https://github.com/viktorradu/fabric-datasource-inventory/blob/main/inventory-cli.py), leverages the Power BI REST API to extract metadata about your datasets, models, and their associated data sources. It then organizes this information into a CSV file for easy review.
 
 ### Running the Script in CLI
 
