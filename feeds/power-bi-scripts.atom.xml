@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Data Field Journal - Power BI Scripts</title><link href="http://127.0.0.1:5500/blog/output/" rel="alternate"></link><link href="http://127.0.0.1:5500/blog/output/feeds/power-bi-scripts.atom.xml" rel="self"></link><id>http://127.0.0.1:5500/blog/output/</id><updated>2025-04-02T00:00:00-04:00</updated><subtitle>A collection of business intelligence and data analytics notes</subtitle><entry><title>Exporting Power BI Semantic Model Lineage into CSV Files</title><link href="http://127.0.0.1:5500/blog/output/exporting-power-bi-semantic-model-lineage-into-csv-files.html" rel="alternate"></link><published>2025-04-02T00:00:00-04:00</published><updated>2025-04-02T00:00:00-04:00</updated><author><name>Viktor Radu</name></author><id>tag:127.0.0.1,2025-04-02:/blog/output/exporting-power-bi-semantic-model-lineage-into-csv-files.html</id><summary type="html">&lt;h2&gt;Why Export Semantic Model Lineage?&lt;/h2&gt;
+&lt;p&gt;Understanding the lineage of your Power BI semantic models, specifically, which data sources are being used and how they connect to your models, can be incredibly useful in a variety of scenarios:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Governance &amp;amp; Compliance&lt;/strong&gt;: Ensure that sensitive or regulated datasets are only being used in …&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;h2&gt;Why Export Semantic Model Lineage?&lt;/h2&gt;
+&lt;p&gt;Understanding the lineage of your Power BI semantic models, specifically, which data sources are being used and how they connect to your models, can be incredibly useful in a variety of scenarios:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Governance &amp;amp; Compliance&lt;/strong&gt;: Ensure that sensitive or regulated datasets are only being used in approved reports or dashboards.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Impact Analysis&lt;/strong&gt;: Identify which reports or datasets might be impacted if a data source changes, enabling proactive updates and minimizing downtime.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Optimization&lt;/strong&gt;: Spot underused or redundant data sources that can be optimized or consolidated.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Documentation&lt;/strong&gt;: Maintain up-to-date documentation of your data ecosystem for internal knowledge sharing and onboarding.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To make this process easier, I've created a Python script that extracts the semantic model lineage from Power BI and exports it into CSV files for further analysis.&lt;/p&gt;
+&lt;h2&gt;The Solution&lt;/h2&gt;
+&lt;p&gt;The script I created, &lt;a href="https://github.com/viktorradu/fabric-datasource-inventory/blob/main/inventory-cli.py"&gt;&lt;code&gt;inventory-cli.py&lt;/code&gt;&lt;/a&gt;, leverages the Power BI REST API to extract metadata about your datasets, models, and their associated data sources. It then organizes this information into a CSV file for easy review.&lt;/p&gt;
+&lt;h3&gt;Running the Script in CLI&lt;/h3&gt;
+&lt;p&gt;Follow these steps to use the script in your environment:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Clone the Repository&lt;/strong&gt;&lt;br&gt;
+   First, clone the GitHub repository to your local machine:
+   &lt;code&gt;git clone https://github.com/viktorradu/fabric-datasource-inventory.git
+   cd fabric-datasource-inventory&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Install Dependencies&lt;/strong&gt;&lt;br&gt;
+   The script relies on Python 3 and some additional libraries. Install the required dependencies:
+   &lt;code&gt;pip install -r requirements.txt&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Configure Authentication&lt;/strong&gt;&lt;br&gt;
+   You'll need a Fabric Administrator user account or a service principal with the necessary API permissions. When using a service principal, make sure to provide --tenant, --client, and --secret arguments when running the script.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Run the Script&lt;/strong&gt;&lt;br&gt;
+   Execute the script using the following command:
+   &lt;code&gt;python inventory-cli.py --output output&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The script will connect to your Power BI tenant, query the metadata, and save the lineage information into the output folder.&lt;/p&gt;
+&lt;h2&gt;Example Output&lt;/h2&gt;
+&lt;p&gt;The exported CSV files will contain columns such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Semantic model name&lt;/li&gt;
+&lt;li&gt;Workspace name&lt;/li&gt;
+&lt;li&gt;Datasource Type (e.g., SQL Server, Azure Storage, etc.)&lt;/li&gt;
+&lt;li&gt;Connection Details (e.g. servers, databases, file paths, etc.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This structured output makes it easy to analyze and filter the lineage data as needed.&lt;/p&gt;
+&lt;h2&gt;GitHub Repository&lt;/h2&gt;
+&lt;p&gt;You can find the script and additional documentation in the GitHub repository:&lt;br&gt;
+&lt;a href="https://github.com/viktorradu/fabric-datasource-inventory"&gt;https://github.com/viktorradu/fabric-datasource-inventory&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Exporting semantic model lineage is a key step in maintaining a well-documented and governed Power BI environment. Whether you're preparing for compliance audits, performing impact analysis, or simply trying to optimize your data ecosystem, this script can save you time and effort.&lt;/p&gt;
+&lt;p&gt;Have questions or feedback? Feel free to reach out or submit an issue on the GitHub repository. Happy analyzing!&lt;/p&gt;</content><category term="Power BI Scripts"></category><category term="Power BI"></category><category term="CLI"></category><category term="Python"></category><category term="Data Source"></category></entry></feed>
